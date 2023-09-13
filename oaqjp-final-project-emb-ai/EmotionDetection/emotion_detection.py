@@ -17,16 +17,16 @@ def emotion_detector(text_to_analyse):
 
     emotion_scores = [anger_score,disgust_score,fear_score,joy_score,sadness_score]
     highest_score = max(emotion_scores)
-
-    
-
     key_list = list(emotions.keys())
     val_list = list(emotions.values())
     dominant_emotion = key_list[val_list.index(highest_score)]
    
-
-    return {'anger': anger_score,'disgust': disgust_score,'fear': fear_score,
+    result =  {'anger': anger_score,'disgust': disgust_score,'fear': fear_score,
             'joy': joy_score,'sadness': sadness_score,'dominant_emotion': dominant_emotion }
+    
+    
+    if response.status_code == 400 :
+        result = dict.fromkeys(result, 'None')
 
-
+    return result
     
