@@ -26,7 +26,7 @@ def emotion_detector(text_to_analyse):
     
     
     if response.status_code == 400 :
-        result = dict.fromkeys(result, 'None')
+        result = dict.fromkeys(result, None)
 
     return result
     
